@@ -1,0 +1,22 @@
+pickUpUp
+catcherClose
+pickUpDown
+catcherOpen
+spinPickup: -0.3
+wait:0.1
+driveStraight: 110,0.6
+spinPickup: 0
+wait:0.5
+fire
+spinPickup:-1.0
+driveStraight: -10, 0.5
+wait:0.5
+pickUpStop
+pickUpShootPosition
+wait: 0.7
+driveStraight: 10, 0.6
+wait: 0.7
+fire
+catcherClose
+pickUpUp
+driveStraight: -100 , 0.7
