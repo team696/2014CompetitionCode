@@ -37,13 +37,13 @@ public class  pickUpDown extends Command {
     protected void execute() {
         
         System.out.println("runing things start" );
-        if(pickUpTimer.get()>0.5){
+        if(pickUpTimer.get()>0.25){
             Robot.pickUp.set3InSolenoid(true);
         }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (pickUpTimer.get()>0.5);
+        return (pickUpTimer.get()>0.4);
     }
     // Called once after isFinished returns true
     protected void end() {

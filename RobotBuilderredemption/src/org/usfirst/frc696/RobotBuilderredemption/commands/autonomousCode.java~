@@ -22,11 +22,13 @@ public class autonomousCode extends CommandGroup {
 
     public static Timer timer = new Timer();
     String rawString = "";
-
+    
     public autonomousCode() {
         // addSequential(new driveStraight(0.3,0.3));
         timer.start();
         addParallel(new flashLEDs());
+        Robot.driveTrain.resetGyro();
+        Robot.driveTrain.resetEncoders();
         //PARSING CODE STARTS
         do {
             rawString = SmartDashboard.getString("rawString", "String Not Found");

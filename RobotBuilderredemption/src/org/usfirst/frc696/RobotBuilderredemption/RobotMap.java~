@@ -32,8 +32,9 @@ public class RobotMap {
     public static Encoder driveTrainleftEncoder;
     public static Solenoid driveTrainshiftingSolenoid;
     public static Compressor driveTraincompressor;
-    public static SpeedController driveTraincenterLeftTalon;
     public static SpeedController driveTraincenterRightTalon;
+    public static SpeedController driveTraincenterLeftTalon;
+    public static RobotDrive driveTrainRobotDrive2;
     public static Solenoid catchercatcherOpen;
     public static Solenoid pickUpthreeInSolenoid;
     public static SpeedController pickUppickUpRight;
@@ -88,12 +89,19 @@ public class RobotMap {
         driveTraincompressor = new Compressor(1, 1, 1, 1);
 	
         
-        driveTraincenterLeftTalon = new Talon(1, 4);
-	LiveWindow.addActuator("DriveTrain", "centerLeftTalon", (Talon) driveTraincenterLeftTalon);
-        
         driveTraincenterRightTalon = new Talon(1, 7);
 	LiveWindow.addActuator("DriveTrain", "centerRightTalon", (Talon) driveTraincenterRightTalon);
         
+        driveTraincenterLeftTalon = new Talon(1, 4);
+	LiveWindow.addActuator("DriveTrain", "centerLeftTalon", (Talon) driveTraincenterLeftTalon);
+        
+        driveTrainRobotDrive2 = new RobotDrive(driveTraincenterLeftTalon, driveTraincenterRightTalon);
+	
+        driveTrainRobotDrive2.setSafetyEnabled(true);
+        driveTrainRobotDrive2.setExpiration(0.1);
+        driveTrainRobotDrive2.setSensitivity(0.5);
+        driveTrainRobotDrive2.setMaxOutput(1.0);
+        driveTrainRobotDrive2.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);        
         catchercatcherOpen = new Solenoid(1, 3);
 	LiveWindow.addActuator("catcher", "catcherOpen", catchercatcherOpen);
         

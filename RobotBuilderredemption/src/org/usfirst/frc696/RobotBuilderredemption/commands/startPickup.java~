@@ -20,7 +20,7 @@ public class startPickup extends CommandGroup {
     
     public  startPickup() {
         
-        addSequential(new spinPickUp(1.0));
+        addSequential(new spinPickUp(-1.0));
         addSequential(new pickUpDown());
         
         // Add Commands here:
