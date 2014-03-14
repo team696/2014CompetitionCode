@@ -1,9 +1,9 @@
-driveStraight:700, 0.6
+driveStraight:110, 0.6
 wait:0.5
 catcherOpen
 pickupDown
 wait: 1.5
 fire
-driveStraight: -1000 , 0.6
+driveStraight: -100 , 0.6
 catcherClose
 pickUpUp
