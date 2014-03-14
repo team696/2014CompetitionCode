@@ -32,14 +32,13 @@ public class RobotMap {
     public static Encoder driveTrainleftEncoder;
     public static Solenoid driveTrainshiftingSolenoid;
     public static Compressor driveTraincompressor;
-    public static SpeedController driveTraincenterRightTalon;
-    public static SpeedController driveTraincenterLeftTalon;
-    public static RobotDrive driveTrainRobotDrive2;
     public static Solenoid catchercatcherOpen;
     public static Solenoid pickUpthreeInSolenoid;
-    public static SpeedController pickUppickUpRight;
+    public static SpeedController pickUpbackPickUpRight;
     public static Solenoid pickUptwoInSolenoid;
-    public static SpeedController pickUppickUpLeft;
+    public static SpeedController pickUpbackPickUpLeft;
+    public static SpeedController pickUpfrontPickUpRight;
+    public static SpeedController pickUpfrontPickUpLeft;
     public static SpeedController shooterchoochooRight;
     public static SpeedController shooterchoochooLeft;
     public static DigitalInput shooterchoochooLimitSwitchLeft;
@@ -89,33 +88,26 @@ public class RobotMap {
         driveTraincompressor = new Compressor(1, 1, 1, 1);
 	
         
-        driveTraincenterRightTalon = new Talon(1, 7);
-	LiveWindow.addActuator("DriveTrain", "centerRightTalon", (Talon) driveTraincenterRightTalon);
-        
-        driveTraincenterLeftTalon = new Talon(1, 4);
-	LiveWindow.addActuator("DriveTrain", "centerLeftTalon", (Talon) driveTraincenterLeftTalon);
-        
-        driveTrainRobotDrive2 = new RobotDrive(driveTraincenterLeftTalon, driveTraincenterRightTalon);
-	
-        driveTrainRobotDrive2.setSafetyEnabled(true);
-        driveTrainRobotDrive2.setExpiration(0.1);
-        driveTrainRobotDrive2.setSensitivity(0.5);
-        driveTrainRobotDrive2.setMaxOutput(1.0);
-        driveTrainRobotDrive2.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);        
         catchercatcherOpen = new Solenoid(1, 3);
 	LiveWindow.addActuator("catcher", "catcherOpen", catchercatcherOpen);
         
         pickUpthreeInSolenoid = new Solenoid(1, 2);
 	LiveWindow.addActuator("pickUp", "threeInSolenoid", pickUpthreeInSolenoid);
         
-        pickUppickUpRight = new Talon(1, 10);
-	LiveWindow.addActuator("pickUp", "pickUpRight", (Talon) pickUppickUpRight);
+        pickUpbackPickUpRight = new Talon(1, 10);
+	LiveWindow.addActuator("pickUp", "backPickUpRight", (Talon) pickUpbackPickUpRight);
         
         pickUptwoInSolenoid = new Solenoid(1, 1);
 	LiveWindow.addActuator("pickUp", "twoInSolenoid", pickUptwoInSolenoid);
         
-        pickUppickUpLeft = new Talon(1, 1);
-	LiveWindow.addActuator("pickUp", "pickUpLeft", (Talon) pickUppickUpLeft);
+        pickUpbackPickUpLeft = new Talon(1, 1);
+	LiveWindow.addActuator("pickUp", "backPickUpLeft", (Talon) pickUpbackPickUpLeft);
+        
+        pickUpfrontPickUpRight = new Talon(1, 7);
+	LiveWindow.addActuator("pickUp", "frontPickUpRight", (Talon) pickUpfrontPickUpRight);
+        
+        pickUpfrontPickUpLeft = new Talon(1, 4);
+	LiveWindow.addActuator("pickUp", "frontPickUpLeft", (Talon) pickUpfrontPickUpLeft);
         
         shooterchoochooRight = new Talon(1, 9);
 	LiveWindow.addActuator("shooter", "choochooRight", (Talon) shooterchoochooRight);

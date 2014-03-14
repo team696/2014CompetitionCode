@@ -37,8 +37,8 @@ public class  fire extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        
-        if((!Robot.shooter.getSwitch()&&(shootTimer.get()>0.4)) || shootTimer.get()>1.5){
+        System.out.println((!Robot.shooter.getSwitch()&&(shootTimer.get()>0.4)) || shootTimer.get()>1.5);
+        if((Robot.shooter.getSwitch()&&(shootTimer.get()>0.4)) || shootTimer.get()>1.5){
             Robot.shooter.stopChooChoo();
             System.out.println(Robot.shooter.getSwitch() + "  " + Robot.shooter.getSwitch2());
             return true;
