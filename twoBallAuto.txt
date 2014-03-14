@@ -17,6 +17,7 @@ spinPickup: 0
 wait:0.5
 
 fire
+
 spinPickup:-1.0
 
 driveStraight: -30, 0.5
