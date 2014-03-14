@@ -179,15 +179,15 @@ public class Robot extends IterativeRobot {
         RobotMap.pickUpbackPickUpLeft.set(-pickUpRollerRocker);
         RobotMap.pickUpbackPickUpRight.set(pickUpRollerRocker);
         if (button[1]) {
-            RobotMap.frontPickupfrontPickUpLeft.set(-pickUpRollerRocker);
-            RobotMap.frontPickupfrontPickUpRight.set(pickUpRollerRocker);
+            RobotMap.frontPickupLeft.set(-pickUpRollerRocker);
+            RobotMap.frontPickupRight.set(pickUpRollerRocker);
         } else if (button[3]) {
-            RobotMap.frontPickupfrontPickUpLeft.set(pickUpRollerRocker);
-            RobotMap.frontPickupfrontPickUpRight.set(-pickUpRollerRocker);
+            RobotMap.frontPickupLeft.set(pickUpRollerRocker);
+            RobotMap.frontPickupRight.set(-pickUpRollerRocker);
         } else {
             if (button[1]) {
-                RobotMap.frontPickupfrontPickUpLeft.set(0.0);
-                RobotMap.frontPickupfrontPickUpRight.set(0.0);
+                RobotMap.frontPickupLeft.set(0.0);
+                RobotMap.frontPickupRight.set(0.0);
             }
         }
         
