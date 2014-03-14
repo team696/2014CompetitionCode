@@ -9,12 +9,12 @@ spinPickup: 0
 wait:0.5
 fire
 spinPickup:-1.0
-driveStraight: -10, 0.5
-wait:0.5
+driveStraight: -30, 0.5
+wait:1.3
 pickUpStop
 pickUpShootPosition
 wait: 0.7
-driveStraight: 10, 0.6
+driveStraight: 30, 0.6
 wait: 0.7
 fire
 catcherClose
