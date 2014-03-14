@@ -11,21 +11,15 @@
 
 package org.usfirst.frc696.RobotBuilderredemption.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import org.usfirst.frc696.RobotBuilderredemption.Robot;
 
 /**
  *
  */
-public class shoot extends CommandGroup {
+public class startFrontPickup extends CommandGroup {
     
-    public  shoot() {
-            addSequential(new frontPickUpDown());
-            addSequential(new pickUpDown());
-            addSequential(new wait(0.5));
-            addSequential(new fire());
-            addParallel(new frontPickupUp());
-            addSequential(new pickupUp());
-        
+    public  startFrontPickup() {
+         addSequential(new spinFrontPickup(-1.0));
+        addSequential(new frontPickUpDown());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

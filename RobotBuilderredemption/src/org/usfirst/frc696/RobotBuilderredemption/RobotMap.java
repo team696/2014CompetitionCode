@@ -32,13 +32,13 @@ public class RobotMap {
     public static Encoder driveTrainleftEncoder;
     public static Solenoid driveTrainshiftingSolenoid;
     public static Compressor driveTraincompressor;
-    public static Solenoid catchercatcherOpen;
     public static Solenoid pickUpthreeInSolenoid;
     public static SpeedController pickUpbackPickUpRight;
     public static Solenoid pickUptwoInSolenoid;
     public static SpeedController pickUpbackPickUpLeft;
     public static SpeedController frontPickupRight;
     public static SpeedController frontPickupLeft;
+    public static Solenoid frontPickupdeploy;
     public static SpeedController shooterchoochooRight;
     public static SpeedController shooterchoochooLeft;
     public static DigitalInput shooterchoochooLimitSwitchLeft;
@@ -88,9 +88,6 @@ public class RobotMap {
         driveTraincompressor = new Compressor(1, 1, 1, 1);
 	
         
-        catchercatcherOpen = new Solenoid(1, 3);
-	LiveWindow.addActuator("catcher", "catcherOpen", catchercatcherOpen);
-        
         pickUpthreeInSolenoid = new Solenoid(1, 2);
 	LiveWindow.addActuator("pickUp", "threeInSolenoid", pickUpthreeInSolenoid);
         
@@ -108,6 +105,9 @@ public class RobotMap {
         
         frontPickupLeft = new Talon(1, 4);
 	LiveWindow.addActuator("frontPickup", "Left", (Talon) frontPickupLeft);
+        
+        frontPickupdeploy = new Solenoid(1, 3);
+	LiveWindow.addActuator("frontPickup", "deploy", frontPickupdeploy);
         
         shooterchoochooRight = new Talon(1, 9);
 	LiveWindow.addActuator("shooter", "choochooRight", (Talon) shooterchoochooRight);

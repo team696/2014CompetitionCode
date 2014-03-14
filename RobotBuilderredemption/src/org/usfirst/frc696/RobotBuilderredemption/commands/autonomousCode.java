@@ -125,12 +125,7 @@ public class autonomousCode extends CommandGroup {
                     addSequential(new waitForHotGoal());
                 } else if (command.equalsIgnoreCase("fire")) {
                     addSequential(new fire());
-                }else if (command.equalsIgnoreCase("catcherOpen")) {
-                    addSequential(new catcherDeploy());
-                } else if (command.equalsIgnoreCase("catcherClose")) {
-                    addSequential(new catcherIn());
                 }
-
             }
         } catch (Exception ex) {
             System.out.println("Fix the Code Jack!");
