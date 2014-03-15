@@ -11,13 +11,19 @@
 
 package org.usfirst.frc696.RobotBuilderredemption.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.usfirst.frc696.RobotBuilderredemption.Robot;
 
 /**
  *
  */
 public class turnToHotGoal extends CommandGroup {
     
-    public  turnToHotGoal() {
+    public  turnToHotGoal(double turnAngle) {
+        if(Robot.driveTrain.hotness[0] < 2){
+            addSequential(new turn(turnAngle));
+        }else{
+            addSequential(new turn(-turnAngle));
+        }
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

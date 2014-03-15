@@ -93,6 +93,15 @@ public class autonomousCode extends CommandGroup {
                             addSequential(new turn(args[0]));
                             break;
                     }
+                } else if (command.equalsIgnoreCase("turnToHotGoal")) {
+                    switch (args.length) {
+                        case 0:
+                            addSequential(new turnToHotGoal(30));
+                            break;
+                        case 1:
+                            addSequential(new turnToHotGoal(args[0]));
+                            break;
+                    }
                 } else if (command.equalsIgnoreCase("shoot")) {
                     System.out.println("starting shooting");
                     addSequential(new shoot());
