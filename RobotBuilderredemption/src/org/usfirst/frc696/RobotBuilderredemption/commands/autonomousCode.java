@@ -16,7 +16,7 @@ import org.usfirst.frc696.RobotBuilderredemption.Robot;
 import org.usfirst.frc696.RobotBuilderredemption.UtilClasses.Util;
 
 /**
- * S.A.S.H.A; Specific autonomous Scripting Handiness Algorithm.
+ * S.A.S.H.A; Specific Autonomous Scripting Handiness Algorithm.
  */
 public class autonomousCode extends CommandGroup {
 
@@ -105,9 +105,9 @@ public class autonomousCode extends CommandGroup {
                 } else if (command.equalsIgnoreCase("shoot")) {
                     System.out.println("starting shooting");
                     addSequential(new shoot());
-                } else if (command.equalsIgnoreCase("pickUpUp")) {
+                } else if (command.equalsIgnoreCase("pickupUp")) {
                     addSequential(new pickupUp());
-                } else if (command.equalsIgnoreCase("frontPickUpUp")) {
+                } else if (command.equalsIgnoreCase("frontPickupUp")) {
                     addSequential(new frontPickupUp());
                 }else if (command.equalsIgnoreCase("spinPickup")) {
                      switch (args.length) {
@@ -129,13 +129,13 @@ public class autonomousCode extends CommandGroup {
                     addSequential(new pickUpDown());
                 } else if (command.equalsIgnoreCase("frontPickupDown")) {
                     addSequential(new frontPickUpDown());
-                } else if (command.equalsIgnoreCase("pickUpShootPosition")) {
+                } else if (command.equalsIgnoreCase("pickupShootPosition")) {
                     addSequential(new pickupShootPosition());
-                }else if (command.equalsIgnoreCase("pickUpStart")) {
+                }else if (command.equalsIgnoreCase("pickupStart")) {
                     addSequential(new startPickup());
-                }else if (command.equalsIgnoreCase("frontPickUpStart")) {
+                }else if (command.equalsIgnoreCase("frontPickupStart")) {
                     addSequential(new startFrontPickup());
-                } else if (command.equalsIgnoreCase("pickUpStop")) {
+                } else if (command.equalsIgnoreCase("pickupStop")) {
                     addSequential(new stopPickup());
                 }else if (command.equalsIgnoreCase("frontPickupStop")) {
                     addSequential(new stopFrontPickup());
