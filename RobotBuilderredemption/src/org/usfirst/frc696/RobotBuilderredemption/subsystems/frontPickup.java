@@ -34,7 +34,6 @@ public class frontPickup extends Subsystem {
     public void setDeploy(boolean val){
         deploy.set(val);
     }
-
     public void setMotor(double setVal){
         right.set(setVal);
         left.set(-setVal);

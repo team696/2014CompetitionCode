@@ -98,7 +98,9 @@ public class autonomousCode extends CommandGroup {
                     addSequential(new shoot());
                 } else if (command.equalsIgnoreCase("pickUpUp")) {
                     addSequential(new pickupUp());
-                } else if (command.equalsIgnoreCase("spinPickup")) {
+                } else if (command.equalsIgnoreCase("frontPickUpUp")) {
+                    addSequential(new frontPickupUp());
+                }else if (command.equalsIgnoreCase("spinPickup")) {
                      switch (args.length) {
                         case 0:
                             addSequential(new spinPickUp());
@@ -106,23 +108,37 @@ public class autonomousCode extends CommandGroup {
                             addSequential(new spinPickUp(args[0]));
                     }
                     
-                } else if (command.equalsIgnoreCase("pickUpDown")) {
+                } else if (command.equalsIgnoreCase("spinFrontPickup")) {
+                     switch (args.length) {
+                        case 0:
+                            addSequential(new spinFrontPickup());
+                        case 1:
+                            addSequential(new spinFrontPickup(args[0]));
+                    }
+                    
+                }else if (command.equalsIgnoreCase("pickUpDown")) {
                     addSequential(new pickUpDown());
+                } else if (command.equalsIgnoreCase("frontPickupDown")) {
+                    addSequential(new frontPickUpDown());
                 } else if (command.equalsIgnoreCase("pickUpShootPosition")) {
                     addSequential(new pickupShootPosition());
                 }else if (command.equalsIgnoreCase("pickUpStart")) {
                     addSequential(new startPickup());
+                }else if (command.equalsIgnoreCase("frontPickUpStart")) {
+                    addSequential(new startFrontPickup());
                 } else if (command.equalsIgnoreCase("pickUpStop")) {
                     addSequential(new stopPickup());
-                } else if (command.equalsIgnoreCase("wait")) {
+                }else if (command.equalsIgnoreCase("frontPickupStop")) {
+                    addSequential(new stopFrontPickup());
+                }  else if (command.equalsIgnoreCase("wait")) {
                     switch (args.length) {
                         case 0:
                             addSequential(new wait());
                         case 1:
                             addSequential(new wait(args[0]));
                     }
-                } else if (command.equalsIgnoreCase("waitForHotGoal")) {
-                    addSequential(new waitForHotGoal());
+                } else if (command.equalsIgnoreCase("getHotGoal")) {
+                    addSequential(new getHotGoal());
                 } else if (command.equalsIgnoreCase("fire")) {
                     addSequential(new fire());
                 }

@@ -98,7 +98,9 @@ public class autonomousCode extends CommandGroup {
                     addSequential(new shoot());
                 } else if (command.equalsIgnoreCase("pickUpUp")) {
                     addSequential(new pickupUp());
-                } else if (command.equalsIgnoreCase("spinPickup")) {
+                } else if (command.equalsIgnoreCase("frontPickUpUp")) {
+                    addSequential(new frontPickupUp());
+                }else if (command.equalsIgnoreCase("spinPickup")) {
                      switch (args.length) {
                         case 0:
                             addSequential(new spinPickUp());
@@ -121,16 +123,11 @@ public class autonomousCode extends CommandGroup {
                         case 1:
                             addSequential(new wait(args[0]));
                     }
-                } else if (command.equalsIgnoreCase("waitForHotGoal")) {
-                    addSequential(new waitForHotGoal());
+                } else if (command.equalsIgnoreCase("getHotGoal")) {
+                    addSequential(new getHotGoal());
                 } else if (command.equalsIgnoreCase("fire")) {
                     addSequential(new fire());
-                }else if (command.equalsIgnoreCase("catcherOpen")) {
-                    addSequential(new catcherDeploy());
-                } else if (command.equalsIgnoreCase("catcherClose")) {
-                    addSequential(new catcherIn());
                 }
-
             }
         } catch (Exception ex) {
             System.out.println("Fix the Code Jack!");

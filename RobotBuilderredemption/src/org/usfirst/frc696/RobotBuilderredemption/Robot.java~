@@ -206,7 +206,7 @@ public class Robot extends IterativeRobot {
         rightDriveSetVal = Util.smooth(rightDriveVal, rightDriveSetVal, 2);
         leftDriveSetVal = Util.smooth(leftDriveVal, leftDriveSetVal, 2);
         pickUpDown = button[2];
-        RobotMap.frontPickupfrontPickupDeploy.set(button[1]);        
+        RobotMap.frontPickupdeploy.set(button[1]);        
         if (button[6] && (!oldButton[6])) {
             ejected = !ejected;
         }

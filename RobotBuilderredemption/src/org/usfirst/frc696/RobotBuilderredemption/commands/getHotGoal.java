@@ -18,14 +18,12 @@ import org.usfirst.frc696.RobotBuilderredemption.Robot;
 /**
  *
  */
-public class  waitForHotGoal extends Command {
-    SocketConnection sc;
+public class  getHotGoal extends Command {
+   SocketConnection sc;
     InputStream in;
     boolean gotValue = false;
-    int timeToWait = 1;
-    Timer timer = new Timer();
-    
-    public waitForHotGoal() {
+    Timer timeoutTimer = new Timer();
+    public getHotGoal() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -35,33 +33,29 @@ public class  waitForHotGoal extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        timeoutTimer.start();
        try{
         sc = (SocketConnection) Connector.open("socket://10.6.96.69:1180");
+        
         in = sc.openInputStream();
         }catch(IOException e){}
-        timer.start();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
        if(!gotValue){
         try{
+            System.out.println("looping");
             in.read(Robot.driveTrain.hotness);
+            
             System.out.println("got this number!:  "+ Robot.driveTrain.hotness[0]);
-            if(Robot.driveTrain.hotness[0] == 0){
-                timeToWait = 5;
-            }
             gotValue = true;
             
-        }catch(IOException e){System.out.println("failedToGet");}
+        }catch(Exception e){System.out.println("failedToGet");}
       }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if(timer.get()>timeToWait){
-        System.out.println("done!");
-        return true;
-        }
-        return false;
+        return gotValue||timeoutTimer.get()>0.5;
     }
     // Called once after isFinished returns true
     protected void end() {
