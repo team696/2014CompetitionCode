@@ -177,14 +177,16 @@ public class Robot extends IterativeRobot {
         RobotMap.pickUpbackPickUpLeft.set(-pickUpRollerRocker);
         RobotMap.pickUpbackPickUpRight.set(pickUpRollerRocker);
         if (button[1]) {
-            RobotMap.frontPickupLeft.set(-1);
-            RobotMap.frontPickupRight.set(1);
+            RobotMap.frontPickupLeft.set(-pickUpRollerRocker);
+            RobotMap.frontPickupRight.set(pickUpRollerRocker);
         } else if (button[3]) {
-            RobotMap.frontPickupLeft.set(1);
-            RobotMap.frontPickupRight.set(-1);
+            RobotMap.frontPickupLeft.set(pickUpRollerRocker);
+            RobotMap.frontPickupRight.set(-pickUpRollerRocker);
         } else {
-            RobotMap.frontPickupLeft.set(0.0);
-            RobotMap.frontPickupRight.set(0.0);           
+            if (button[1]) {
+                RobotMap.frontPickupLeft.set(0.0);
+                RobotMap.frontPickupRight.set(0.0);
+            }
         }
         
         //drive code
@@ -203,22 +205,21 @@ public class Robot extends IterativeRobot {
         }
         rightDriveSetVal = Util.smooth(rightDriveVal, rightDriveSetVal, 2);
         leftDriveSetVal = Util.smooth(leftDriveVal, leftDriveSetVal, 2);
-        //pickUpDown = button[2];
-        RobotMap.frontPickupdeploy.set(button[2]);        
-        
+        pickUpDown = button[2];
+        RobotMap.frontPickupdeploy.set(button[1]);        
+        if (button[6] && (!oldButton[6])) {
+            ejected = !ejected;
+        }
         System.out.println((!RobotMap.shooterchoochooLimitSwitchLeft.get()) + "   " + (!RobotMap.shooterchoochooLimitSwitchLeft.get()));
         if (trussFire) {
             RobotMap.pickUpthreeInSolenoid.set(true);
-            RobotMap.shooterejectSolenoid.set(true);
-            RobotMap.pickUpbackPickUpRight.set(-0.6);
-            RobotMap.pickUpbackPickUpLeft.set(0.6);
-            if ((trussFireTimer.get() > 0.05)) {
-                RobotMap.shooterchoochooLeft.set(0.85);
-                RobotMap.shooterchoochooRight.set(-0.85);
+            if ((trussFireTimer.get() > 0.1)) {
+                RobotMap.shooterchoochooLeft.set(0.7);
+                RobotMap.shooterchoochooRight.set(-0.7);
                 if (((trussFireTimer.get() > 0.3) && ((RobotMap.shooterchoochooLimitSwitchLeft.get()) || (RobotMap.shooterchoochooLimitSwitchRight.get()))) || (trussFireTimer.get() > 3)) {
                     System.out.println("Stopping");
                     RobotMap.shooterchoochooLeft.set(0);
-                RobotMap.shooterchoochooRight.set(0);
+                    RobotMap.shooterchoochooRight.set(0);
                     trussFire = false;
                     trussShot = 0;
                     trussFireTimer.reset();
@@ -229,7 +230,7 @@ public class Robot extends IterativeRobot {
         if (button[4] && (!oldButton[4])) {
             trussPos = !trussPos;
         }
-        //RobotMap.pickUpthreeInSolenoid.set(trussPos);
+        RobotMap.pickUpthreeInSolenoid.set(trussPos);
         if (button[5] && (!oldButton[5])) {
             pickUpTimer.start();
             RobotMap.pickUptwoInSolenoid.set(true);
@@ -267,8 +268,8 @@ public class Robot extends IterativeRobot {
         }
         if (button[6]) {
             RobotMap.shooterejectSolenoid.set(true);
-            RobotMap.pickUpbackPickUpRight.set(0.8);
-            RobotMap.pickUpbackPickUpLeft.set(-0.8);
+            RobotMap.pickUpbackPickUpRight.set(-0.8);
+            RobotMap.pickUpbackPickUpLeft.set(0.8);
         }
         oldFastTurn = fastTurn;
         if (button[9] && (!oldButton[9])) {
@@ -279,7 +280,6 @@ public class Robot extends IterativeRobot {
         }
         if (trussShot == 1) {
             RobotMap.pickUpthreeInSolenoid.set(true);
-            RobotMap.shooterejectSolenoid.set(true);
         }
         if ((trussShot == 2) && (button[9])) {
             trussFire = true;
