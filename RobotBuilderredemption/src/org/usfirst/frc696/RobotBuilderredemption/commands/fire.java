@@ -11,6 +11,7 @@ package org.usfirst.frc696.RobotBuilderredemption.commands;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc696.RobotBuilderredemption.Robot;
+import org.usfirst.frc696.RobotBuilderredemption.subsystems.shooter;
 /**
  *
  */
@@ -51,5 +52,6 @@ public class  fire extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        Robot.shooter.stopChooChoo();
     }
 }
