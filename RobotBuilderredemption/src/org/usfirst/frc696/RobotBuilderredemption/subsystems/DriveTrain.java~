@@ -73,7 +73,7 @@ public class DriveTrain extends Subsystem {
             System.out.println(leftEncoder.getDistance()/200 + "  " + distance);
             return ((leftEncoder.getDistance()) > distance);//&& (gyro.getAngle()-turn)/2<0.1;
         } else {
-            robotDrive.arcadeDrive(-speed, 0);//-turnController.getOutput());
+            robotDrive.arcadeDrive(-speed, -turnController.getOutput());//-turnController.getOutput());
             return ((leftEncoder.getDistance()) < distance);//&& (gyro.getAngle()-turn)/2<0.1;
         }
     }

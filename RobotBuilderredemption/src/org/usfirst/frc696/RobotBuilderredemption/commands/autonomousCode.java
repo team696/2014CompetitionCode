@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc696.RobotBuilderredemption.Robot;
+import org.usfirst.frc696.RobotBuilderredemption.UtilClasses.CheesyVisionServer;
 import org.usfirst.frc696.RobotBuilderredemption.UtilClasses.Util;
 
 /**
@@ -102,7 +103,16 @@ public class autonomousCode extends CommandGroup {
                             addSequential(new turnToHotGoal(args[0]));
                             break;
                     }
-                } else if (command.equalsIgnoreCase("shoot")) {
+                } else if (command.equalsIgnoreCase("waitForHotGoal")) {
+                    switch (args.length) {
+                        case 0:
+                            addSequential(new WaitForHotGoal(3));
+                            break;
+                        case 1:
+                            addSequential(new WaitForHotGoal(args[0]));
+                            break;
+                    }
+                }else if (command.equalsIgnoreCase("shoot")) {
                     System.out.println("starting shooting");
                     addSequential(new shoot());
                 } else if (command.equalsIgnoreCase("pickupUp")) {

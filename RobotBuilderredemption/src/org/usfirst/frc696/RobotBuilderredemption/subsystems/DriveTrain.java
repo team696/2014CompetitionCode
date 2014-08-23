@@ -12,13 +12,16 @@ import org.usfirst.frc696.RobotBuilderredemption.RobotMap;
 import org.usfirst.frc696.RobotBuilderredemption.commands.*;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc696.RobotBuilderredemption.UtilClasses.CheesyVisionServer;
 import org.usfirst.frc696.RobotBuilderredemption.UtilClasses.CustomPID;
 import org.usfirst.frc696.RobotBuilderredemption.UtilClasses.Util;
 /**
  *
  */
 public class DriveTrain extends Subsystem {
-    public byte[] hotness = {1};
+    public CheesyVisionServer server = CheesyVisionServer.getInstance();
+    public byte[] hotness = {0};
+    public boolean leftHot = false;
     double rightDrivePow = 0.0;
     double leftDrivePow = 0.0;
     double rightSpeed = 0.0;

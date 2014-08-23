@@ -16,14 +16,14 @@ import org.usfirst.frc696.RobotBuilderredemption.Robot;
 /**
  *
  */
-public class turnToHotGoal extends CommandGroup {
+public class WaitForHotGoal extends CommandGroup {
     
-    public  turnToHotGoal(double turnAngle) {
-        if(Robot.driveTrain.hotness[0] < 1){
-            addSequential(new turn(turnAngle));
-        }else{
-            addSequential(new turn(-turnAngle));
-        }
+    public  WaitForHotGoal(double time) {
+        System.out.println("waiting for hot goal  "+ time);
+        addSequential(new getHotGoal(time));
+//        if(Robot.driveTrain.hotness[0] < 1){
+//             addSequential(new wait(time));
+//        }
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

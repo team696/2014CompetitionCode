@@ -25,6 +25,7 @@ public class  driveStraight extends Command {
         speed = _speed;
         distance = _distance;
         angle = Robot.driveTrain.getGyro();
+        
         System.out.println(distance);
         
     }
@@ -48,7 +49,7 @@ public class  driveStraight extends Command {
     protected void execute() {
         
             done = Robot.driveTrain.arcadePIDDrive(speed, distance, angle);
-        
+            System.out.println(Robot.driveTrain.getGyro() + "  " + Robot.driveTrain.turnController.getOutput());
         
     }
     // Make this return true when this Command no longer needs to run execute()
