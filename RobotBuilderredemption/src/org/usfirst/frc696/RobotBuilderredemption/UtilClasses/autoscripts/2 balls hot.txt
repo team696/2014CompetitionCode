@@ -1,0 +1,24 @@
+spinFrontPickup: 0.0
+pickUpUp
+frontPickupUp
+pickUpDown
+frontPickupDown
+driveStraightP: 130,0.7
+wait:0.83
+waitForHotGoal: 4.0
+fire
+pickupUp
+spinFrontPickup: 1.0
+wait:0.3
+frontPickupUp
+wait:0.3
+spinFrontPickup: 0.0
+wait: 0.4
+pickupDown
+frontPickupDown
+wait: 0.3
+fire
+frontPickupUp
+pickUpUp
+driveStraight: -120 , 0.7
+spinFrontPickup: 0.0

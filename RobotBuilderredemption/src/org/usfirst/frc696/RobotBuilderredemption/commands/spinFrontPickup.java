@@ -10,6 +10,7 @@
 package org.usfirst.frc696.RobotBuilderredemption.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc696.RobotBuilderredemption.Robot;
+import org.usfirst.frc696.RobotBuilderredemption.RobotMap;
 /**
  *
  */
@@ -27,16 +28,20 @@ public class  spinFrontPickup extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         speed = _speed;
-        Robot.frontPickup.setMotor(speed);
        
     }
     // Called just before this Command runs the first time
     protected void initialize() {
         System.out.println("spinnig front pickup");
+        
+        RobotMap.frontPickupLeft.set(-speed);
+        RobotMap.frontPickupRight.set(speed);
+       
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.frontPickup.setMotor(speed);
+        RobotMap.frontPickupLeft.set(-speed);
+        RobotMap.frontPickupRight.set(speed);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

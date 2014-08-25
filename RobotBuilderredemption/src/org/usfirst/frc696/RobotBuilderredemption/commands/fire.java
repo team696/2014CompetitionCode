@@ -28,12 +28,12 @@ public class  fire extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.shooter.runChooChoo(0.7);
+        Robot.shooter.runChooChoo(0.9);
         shootTimer.start();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.shooter.runChooChoo(0.7);
+        Robot.shooter.runChooChoo(0.9);
         System.out.println(Robot.shooter.getSwitch() +  "   " + Robot.shooter.getSwitch2());
     }
     // Make this return true when this Command no longer needs to run execute()

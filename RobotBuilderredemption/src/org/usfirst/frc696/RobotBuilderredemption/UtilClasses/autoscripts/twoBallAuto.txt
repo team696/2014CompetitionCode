@@ -1,9 +1,10 @@
 pickUpUp
-catcherClose
+frontPickupUp
 pickUpDown
-catcherOpen
+frontPickupDown
 spinPickup: -0.3
 wait:0.1
+spinPickup:-0.23
 driveStraight: 110,0.6
 spinPickup: 0
 wait:0.5
@@ -17,6 +18,6 @@ wait: 0.7
 driveStraight: 30, 0.6
 wait: 0.7
 fire
-catcherClose
+frontPickupUp
 pickUpUp
 driveStraight: -100 , 0.7
