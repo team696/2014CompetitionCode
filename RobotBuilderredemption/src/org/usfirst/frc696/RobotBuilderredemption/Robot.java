@@ -232,14 +232,12 @@ public class Robot extends IterativeRobot {
            // if (button[6] && (!oldButton[6])) {
             //    ejected = !ejected;
             //}
-            System.out.println((!RobotMap.shooterchoochooLimitSwitchLeft.get()) + "   " + (!RobotMap.shooterchoochooLimitSwitchLeft.get()));
             if (trussFire) {
                 RobotMap.pickUpthreeInSolenoid.set(true);
                 if ((trussFireTimer.get() > 0.1)) {
                     RobotMap.shooterchoochooLeft.set(0.7);
                     RobotMap.shooterchoochooRight.set(-0.7);
                     if (((trussFireTimer.get() > 0.3) && ((RobotMap.shooterchoochooLimitSwitchLeft.get()) || (RobotMap.shooterchoochooLimitSwitchRight.get()))) || (trussFireTimer.get() > 3)) {
-                        //ln("Stopping");
                         RobotMap.shooterchoochooLeft.set(0);
                         RobotMap.shooterchoochooRight.set(0);
                         trussFire = false;
