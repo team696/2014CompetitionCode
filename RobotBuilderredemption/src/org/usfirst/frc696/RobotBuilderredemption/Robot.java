@@ -63,6 +63,7 @@ public class Robot extends IterativeRobot {
     double blueLight = 0.0;
     DriverStationEnhancedIO cypress = DriverStation.getInstance().getEnhancedIO();
     Joystick joyStick = new Joystick(1);
+    Timer teleopTimer = new Timer();
     Timer pickUpTimer = new Timer();
     Timer ejectTimer = new Timer();
     Timer fireTimer = new Timer();
@@ -144,6 +145,8 @@ public class Robot extends IterativeRobot {
         RobotMap.lEDsred.enablePWM(1.0);
         RobotMap.lEDsblue.enablePWM(0.5);
         RobotMap.lEDsgreen.enablePWM(0.0);
+        teleopTimer.reset();
+        teleopTimer.start();
     }
     /**
      * This function is called periodically during operator control
@@ -263,7 +266,8 @@ public class Robot extends IterativeRobot {
                     RobotMap.pickUpthreeInSolenoid.set(true);
                 }
             }
-            System.out.println(!RobotMap.shooterchoochooLimitSwitchLeft.get() + "   " + (!RobotMap.shooterchoochooLimitSwitchRight.get()));
+            //System.out.println(teleopTimer.get()+ "   " !RobotMap.shooterchoochooLimitSwitchLeft.get() + "   " + (!RobotMap.shooterchoochooLimitSwitchRight.get()));
+            System.out.println(teleopTimer.get()+ "   " + wheel + "   " + leftDriveSetVal + "   " + rightDriveSetVal);
             if (button[7] && (!oldButton[7])) {
                 firing = true;
                 //ln("pressed");
@@ -275,7 +279,7 @@ public class Robot extends IterativeRobot {
                 if ((fireTimer.get() > 0.0)) {
                     RobotMap.shooterchoochooLeft.set(0.85);
                     RobotMap.shooterchoochooRight.set(-0.85);
-                    if (((fireTimer.get() > 0.25) && (((RobotMap.shooterchoochooLimitSwitchLeft.get()) || (RobotMap.shooterchoochooLimitSwitchRight.get())))) || (fireTimer.get() > 3)) {
+                    if (((fireTimer.get() > 0.4) && (((RobotMap.shooterchoochooLimitSwitchLeft.get()) || (RobotMap.shooterchoochooLimitSwitchRight.get())))) || (fireTimer.get() > 3)) {
                         //ln("Stopping");
                         RobotMap.shooterchoochooLeft.set(0);
                         RobotMap.shooterchoochooRight.set(0);
