@@ -1,0 +1,11 @@
+driveStraight:110, 0.6
+wait:0.5
+frontPickupDown
+pickupDown
+wait: 0.5
+waitForHotGoal: 3.0
+fire
+fire
+driveStraight: -150 , 0.6
+frontPickupUp
+pickUpUp

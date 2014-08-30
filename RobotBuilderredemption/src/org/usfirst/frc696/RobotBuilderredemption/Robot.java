@@ -277,7 +277,7 @@ public class Robot extends IterativeRobot {
                 if ((fireTimer.get() > 0.0)) {
                     RobotMap.shooterchoochooLeft.set(0.85);
                     RobotMap.shooterchoochooRight.set(-0.85);
-                    if (((fireTimer.get() > 0.25) && (((RobotMap.shooterchoochooLimitSwitchLeft.get()) || (RobotMap.shooterchoochooLimitSwitchRight.get())) && (lastLeftLimitSwitch || lastRightLimitSwitch))) || (fireTimer.get() > 3)) {
+                    if (((fireTimer.get() > 0.25) && (((RobotMap.shooterchoochooLimitSwitchLeft.get()) || (RobotMap.shooterchoochooLimitSwitchRight.get())))) || (fireTimer.get() > 3)) {
                         //ln("Stopping");
                         RobotMap.shooterchoochooLeft.set(0);
                         RobotMap.shooterchoochooRight.set(0);
