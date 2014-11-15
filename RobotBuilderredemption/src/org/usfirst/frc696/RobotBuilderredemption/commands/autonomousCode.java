@@ -34,7 +34,7 @@ public class autonomousCode extends CommandGroup {
         do {
             rawString = SmartDashboard.getString("rawString", "String Not Found");
             System.out.println(rawString);
-        } while (rawString.equals("String Not Found"));
+        } while (rawString.equals("String Not Found")&& timer.get()<3);
         String parsedCode = Util.removeChar(rawString, " ");
         String[] commands = Util.split(parsedCode, "\n");
         try {

@@ -29,7 +29,7 @@ import org.usfirst.frc696.RobotBuilderredemption.subsystems.*;
 public class Robot extends IterativeRobot {
     boolean lastLeftLimitSwitch = false;
     boolean lastRightLimitSwitch = false;
-    boolean paradeMode = false;
+    boolean paradeMode = true;
     boolean frontPickupDown = false;
     boolean backPickupDown = false;
     boolean[] button = new boolean[20];
