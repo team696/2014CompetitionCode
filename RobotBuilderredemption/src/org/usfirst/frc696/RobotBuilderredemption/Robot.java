@@ -357,7 +357,7 @@ public class Robot extends IterativeRobot {
                 shifted = !shifted;
             }
         //drive code
-            Robot.driveTrain.arcadeDrive(-joyStick.getY(), -joyStick.getZ());
+            Robot.driveTrain.tankDrive(-joyStick.getY(), -joyStick.getThrottle());
         //pickupRollers start
             if (button[6]) {
                 RobotMap.frontPickupLeft.set(-1.0);
