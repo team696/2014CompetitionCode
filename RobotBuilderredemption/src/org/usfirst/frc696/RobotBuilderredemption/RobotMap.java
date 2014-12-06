@@ -85,7 +85,7 @@ public class RobotMap {
         driveTrainshiftingSolenoid = new Solenoid(1, 5);
 	LiveWindow.addActuator("DriveTrain", "shiftingSolenoid", driveTrainshiftingSolenoid);
         
-        driveTraincompressor = new Compressor(1, 1, 1, 1);
+        driveTraincompressor = new Compressor(1,1,1,1);
 	
         
         pickUpthreeInSolenoid = new Solenoid(1, 2);
